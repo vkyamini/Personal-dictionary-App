@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <title>Your Vocab Journey</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+  </head>
+
+  <body>
+    <header>
+      <h2 id="welcome">Journey into the world of Words</h1>
+        <div id="searchsection">
+            <input id="wordinput" placeholder="enter the word">
+            <button id="searchBtn">search</button>
+        </div>
+     
+    </header>
+
+    <main>
+        <div id="displaySec" data-state="hidden">
+            <p id="wordDis"></p>
+            <p id="phoneticwrd">Phonetics:</p>
+            <audio id="myAudio" controls>
+              <source id="audioSource" src="" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <!-- <img/> "future development" -->
+            <p id="Wrdefination1"></p>
+            
+            <p id="Example1">An example:</p>
+            <p id="Example2">An example:</p>
+            <p>synonyms:</p>
+            <p>Antonyms:</p>
+            
+
+        </div>
+        <button>Add to Journal</button>
+     
+      
+    </main>
+  </body>
+  <script src="./script.js"></script>
+
+</html>
