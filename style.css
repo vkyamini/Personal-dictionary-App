@@ -1,19 +1,75 @@
 body{
-    background-color:lightblue;
+    background-color:#B0C4D8;
+ /* // definition/examples div    */
+}#wordcontent{ 
+    /* text-align:left; */
+    padding-top: 10px;
+    font-family: 'Source Sans Pro', sans-serif; 
+    
 }
+/* // definition/examples div    */
 #welcome{
     text-align: center;
+    /* natural and earthyu vibe */
+    font-family: 'Source Sans Pro', sans-serif; 
+    color:black;
+    font-size: 25px;
+    
+}#playAudioBtn{
+  background-color:1px 1px 1px 1px whitesmoke;
+  /* padding: 3px; */
+  border-radius: 30px; 
+  color:forestgreen;
+  border:none;
+  box-shadow: none;
+  
+ 
+}#definitionword{
+    text-decoration: underline;
+    font-size: 18px;
 }
-#displaySec{
-    text-align: center;
-}#wordinput{
-    width: 400px;
+#wordinput{
+    background-color: #D8CEC4;
+    width: 350px;
     height: 30px;
-    border-radius: 5px;
-}#searchBtn{
-    width: 148px;
+    border-radius: 40px;
+    border: 2px solid #2E3A59;
+    font-family: 'Quicksand', sans-serif; 
+    font-size: 18px;
+
+   
+}input::placeholder {
+    color: black; 
+    font-size: 1em;
+    font-family: 'Quicksand', sans-serif; 
+    opacity: 0.8;
+    
+  }
+#searchBtn{
+    background-color: #D8CEC4;
+    width: 140px;
     height: 35px;
-    border-radius: 5px;
+    border-radius: 35px;
+    border: 2px solid #2E3A59;
+    font-family: 'Quicksand', sans-serif; 
+    font-size: 18px;
+}#wordandPhonetics{
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center;    
+}
+#wordDis,#phonetics{
+    color:black;
+    font-weight: 500;
+    margin: 4px;
+    padding: 10px;
+    
+    
+    
+}#synonym_header , #antonyms_header{
+    color:black;
+    text-decoration: underline;
+    font-size: 18px;
 }
 
 #searchsection{
@@ -23,4 +79,14 @@ body{
 }#displaySec{
     display: none;
 
+}#headingsyn{
+    display:none;
+}#headinganto{
+    display:none;
+}#playAudioBtn:hover{
+  /* padding:5px; */
+  border:1px solid black;
+  box-shadow: 0 4px 8px black;
+  
 }
+

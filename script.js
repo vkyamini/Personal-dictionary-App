@@ -1,55 +1,103 @@
-var displaySec = document.querySelector('#displaySec')
+// need an app that can show the meaning of the word and i can save it for future rerferences
+// need phonetics - done
+//need definations available - done
+//need an audio output - done
+//image would be great too(future project)
+//need Examples - done
+// need synonyms - done
+// need annonyms - done
+// a button to save my search 
+// a page to see my saved words.
+
 var wordinput = document.querySelector('#wordinput');
-var searchBtn = document.querySelector('#searchBtn');
-var wordDis = document.querySelector('#wordDis');
-var source = document.querySelector('#audioSource')
-var myaudio = document.querySelector('#myAudio')
-var Wrdefination1 = document.querySelector('#Wrdefination1');
-var Wrdefination2 = document.querySelector('#Wrdefination2');
-var phoneticwrd = document.querySelector('#phoneticwrd');
-var example1 = document.querySelector('#example1');
-var example2 = document.querySelector('#example2');
-var state = displaySec.getAttribute('data-state');
-console.log(state);
+var phonetics = document.querySelector('#phonetics');
+var source = document.querySelector('#audioSource');
+var myaudio = document.querySelector('#myAudio');
+searchBtn = document.querySelector('#searchBtn');
+displaySec = document.querySelector('#displaySec');
+wordDis = document.querySelector("#wordDis");
+defdis = document.querySelector('#defdis');
+let headingsyn = document.querySelector('#headingsyn');
+var headinganto =  document.querySelector('#headinganto');
+var playAudioBtn = document.querySelector('#playAudioBtn')
+var state = displaySec.getAttribute('display');
 function checkState(){
-    if(state == "hidden"){
-       state == "show"
-       displaySec.setAttribute("style","display:block;");
-       getWord();
-    }
-}
+       if(state == "none"){
+          displaySec.setAttribute("style","display:block;");
+          getWord();
+       }
+   }
+
 function getWord(){
-var inputword = wordinput.value
-
-fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+inputword, )
-.then(function(response){
-    return response.json();
-}).then(function(data){
-var word = data[0].word;
-var data = data[0];
-const url = `https://api.dictionaryapi.dev/media/pronunciations/en/${inputword}-uk.mp3`;
+   var input = wordinput.value
+   var API = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+input ;
    
-   source.src = url;
-   myaudio.load();  // important!
-//   myaudio.play(); if needed to be played on load
-   wordDis.textContent ="the word you are searching is:" +word;
-   //phoneticwrd.textContent = "The phonetics of the word is:" +data.phonetics[0].text;
-   Wrdefination1.textContent = "defination1 is:" + data.meanings[0].definitions[0].definition;
-   Wrdefination2.textContent = "defination2 is:" + data.meanings[1].definitions[0].definition;
-//    for(i=0;i<data.length;i++){
-//    example1.textContent = "example is:" + data[0].meanings[1].definitions[2].example;
-//    example2.textContent = "example is:" + data[0].meanings[1].definitions[1].example;
 
-//    }
- data.phonetics.forEach((phonetics) => { phoneticwrd.textContent = phonetics.text}); // loop through the objects inside an array
- data.meanings.forEach((meanings)=> {
-    let p = document.createElement('p')
+   fetch(API)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("this is data",data)
+      var data = data[0]; // initial declaration of the data
     
-    p.textContent= meanings.definitions[0].defination;}
+      // audio related code started here ------------------------------>
+      playAudioBtn.addEventListener("click",function(){
+         const url = `https://api.dictionaryapi.dev/media/pronunciations/en/${input}-uk.mp3`;
+         source.src = url;
+         myaudio.load();
+         myaudio.play();  // important!
+      })
+      
+       // audio related code ends here  ------------------------------>
+     if(data.word && data.word.length>0){
+      console.log(data.word,data.word.length)
+      var uppercase = data.word.toUpperCase();
+      
+      wordDis.textContent =" The word: " +uppercase;
+      wordDis.setAttribute("style", "font-family: 'Quicksand', sans-serif; font-size: 15px;font-weight: bold;");
 
-) 
-})
-
+     }
+     if(data.phonetic && data.phonetics.length>0){
+      console.log(data.phonetic,data.phonetics.length)
+      phonetics.textContent ="phonetics: " +data.phonetic;
+      phonetics.setAttribute("style", "font-family: 'Quicksand', sans-serif; font-size: 15px;font-weight: bold;")
+     }
+    // printing definations
+     data.meanings.forEach((meanings)=> {
+     let p = document.createElement('p')
+     defdis.append(p);
+     p.textContent = " "+meanings.partOfSpeech + " = "+ meanings.definitions[0].definition;
+  
+   });
+   // printing synonyms if it exsists----------------------------
+   data.meanings.forEach((meanings)=>{
+      if(meanings.synonyms && meanings.synonyms.length>0){
+         headingsyn.setAttribute("style","display:block;");
+         let psyn = document.createElement('p')
+      headingsyn.append(psyn);
+      psyn.textContent = meanings.synonyms
+      }
+     })
+   data.meanings.forEach((meanings)=>{
+      if(meanings.antonyms && meanings.antonyms.length > 0){
+         headinganto.setAttribute("style","display:block;");
+         let panto = document.createElement('p')
+         headinganto.append(panto);
+         panto.textContent = meanings.antonyms;
+      }
+   })
+   data.meanings[0].definitions.forEach((definitions)=> {
+      if(definitions.example&&definitions.example.length>0){
+         let pexm = document.createElement('p')
+         defdis.append(pexm);
+         pexm.textContent ="example: " +definitions.example;
+      }
+     
+      
+    });
+     
+     })
 }
 
 

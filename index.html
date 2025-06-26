@@ -4,42 +4,50 @@
   <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <title>Your Vocab Journey</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
 
   <body>
     <header>
-      <h2 id="welcome">Journey into the world of Words</h1>
+      <h2 id="welcome">Your Personal vocab Journal</h1>
         <div id="searchsection">
-            <input id="wordinput" placeholder="enter the word">
-            <button id="searchBtn">search</button>
+            <input id="wordinput" placeholder="Enter a word.....">
+            <button id="searchBtn">Search</button>
+           
         </div>
      
     </header>
 
     <main>
-        <div id="displaySec" data-state="hidden">
+        <div id="displaySec" display="none">
+           <div id="wordandPhonetics">
             <p id="wordDis"></p>
-            <p id="phoneticwrd">Phonetics:</p>
-            <audio id="myAudio" controls>
-              <source id="audioSource" src="" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
-            <!-- <img/> "future development" -->
-            <p id="Wrdefination1"></p>
-            
-            <p id="Example1">An example:</p>
-            <p id="Example2">An example:</p>
-            <p>synonyms:</p>
-            <p>Antonyms:</p>
-            
+            <p id="phonetics"></p>
+             <!-- button icon for audio -->
+             <button id="playAudioBtn" class="speaker-icon">
+              <i class="fas fa-volume-up"></i>
+             </button>
+               <!-- button icon for audio -->
+               <!--Audio source -->
+               <audio id="myAudio">
+               <source id="audioSource" src="" type="audio/mpeg">
+                Your browser does not support the audio element.
+               </audio>
+               <!--Audio source -->
+            </div> 
 
-        </div>
-        <button>Add to Journal</button>
-     
-      
-    </main>
+            <!-- <img/> "future development" -->
+           <div id="wordcontent">
+           <div id="defdis"><span id="definitionword">DEFINITIONS</span> </div>
+           <div id="headingsyn"><span id="synonym_header">SYNONYMS ARE:</span></div>
+           <div id="headinganto"><span id="antonyms_header">ANTONYMS ARE</span></div>
+          </div>
+           
+          </div>
+        <!-- <button>Add to Journal</button> -->
+      </main>
   </body>
   <script src="./script.js"></script>
 
