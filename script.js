@@ -1,3 +1,22 @@
+//API FOR GETTING IMAGES----------------------------------------------------->
+// API DOC =https://pixabay.com/api/docs/
+// var API_KEY = '51080121-4f3d9417ced7465d90b9006e5';
+// var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
+// $.getJSON(URL, function(data){
+// if (parseInt(data.totalHits) > 0)
+//     $.each(data.hits, function(i, hit){ console.log(hit.pageURL); });
+// else
+//     console.log('No hits');
+// });
+
+// Example
+// Retrieving photos of "yellow flowers". The search term q needs to be URL encoded:
+// EX: https://pixabay.com/api/?key=51080121-4f3d9417ced7465d90b9006e5&q=yellow+flowers&image_type=photo
+
+//API FOR GETTING IMAGES----------------------------------------------------->
+
+
+
 var wordinput = document.querySelector('#wordinput');
 var phonetics = document.querySelector('#phonetics');
 var source = document.querySelector('#audioSource');
