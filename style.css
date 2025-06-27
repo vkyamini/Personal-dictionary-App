@@ -7,10 +7,9 @@ body{
     font-family: 'Source Sans Pro', sans-serif; 
     
 }
-/* // definition/examples div    */
+/* // definition examples div    */
 #welcome{
     text-align: center;
-    /* natural and earthyu vibe */
     font-family: 'Source Sans Pro', sans-serif; 
     color:black;
     font-size: 25px;
@@ -26,7 +25,8 @@ body{
  
 }#definitionword{
     text-decoration: underline;
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: bold;
 }
 #wordinput{
     background-color: #D8CEC4;
@@ -63,16 +63,17 @@ body{
     font-weight: 500;
     margin: 4px;
     padding: 10px;
-    
-    
-    
 }#synonym_header , #antonyms_header{
     color:black;
     text-decoration: underline;
-    font-size: 18px;
-}
-
-#searchsection{
+    font-size: 15px;
+    font-weight: bold;
+}#exampleword{
+    color:black;
+    text-decoration: underline;
+    font-size: 15px;
+    font-weight: bold;
+}#searchsection{
     padding: 20px;
     text-align: center;
     
@@ -80,6 +81,8 @@ body{
     display: none;
 
 }#headingsyn{
+    display:none;
+}#exampledis{
     display:none;
 }#headinganto{
     display:none;

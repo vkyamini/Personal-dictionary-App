@@ -21,14 +21,12 @@
     </header>
 
     <main>
-        <div id="displaySec" display="none">
+        <div id="displaySec">
            <div id="wordandPhonetics">
             <p id="wordDis"></p>
             <p id="phonetics"></p>
              <!-- button icon for audio -->
-             <button id="playAudioBtn" class="speaker-icon">
-              <i class="fas fa-volume-up"></i>
-             </button>
+              <div id="audio-btn"></div>
                <!-- button icon for audio -->
                <!--Audio source -->
                <audio id="myAudio">
@@ -40,9 +38,10 @@
 
             <!-- <img/> "future development" -->
            <div id="wordcontent">
-           <div id="defdis"><span id="definitionword">DEFINITIONS</span> </div>
-           <div id="headingsyn"><span id="synonym_header">SYNONYMS ARE:</span></div>
-           <div id="headinganto"><span id="antonyms_header">ANTONYMS ARE</span></div>
+           <div id="defdis"></div><br>
+           <div id="exampledis"></div> <br>
+           <div id="headingsyn"></div>
+           <div id="headinganto"></div>
           </div>
            
           </div>
@@ -50,5 +49,6 @@
       </main>
   </body>
   <script src="./script.js"></script>
+  <!-- <script src="./new-script.js"></script> -->
 
 </html>
