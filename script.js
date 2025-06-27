@@ -8,8 +8,9 @@ wordDis = document.querySelector("#wordDis");
 defdis = document.querySelector('#defdis');
 let headingsyn = document.querySelector('#headingsyn');
 var headinganto =  document.querySelector('#headinganto');
-var playAudioBtn = document.querySelector('#playAudioBtn')
-
+var playAudioBtn = document.querySelector('#playAudioBtn');
+var saved_words = document.querySelector('#saved_words');
+saveBtn = document.querySelector('#saveBtn');
 // clears HTML for each new render.
 function reset() {
    defdis.innerHTML = "";
@@ -101,6 +102,21 @@ function getWord(){
   
    
 }
-
-
 searchBtn.addEventListener("click",checkState);
+
+saveBtn.addEventListener("click",savedWords); // save the words in local storage and view dynamically.
+function savedWords(){
+   console.log("saved wordes display");
+   var ul = document.createElement('ul');
+   var li = document.createElement('li');
+   saved_words.append(ul);
+   ul.append(li);
+   localStorage.setItem("word",wordinput.value);
+   li.textContent = localStorage.getItem("word");
+   console.log(li.textContent);
+  
+}
+
+ 
+         
+   
